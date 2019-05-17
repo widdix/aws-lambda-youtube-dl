@@ -1,6 +1,6 @@
 # aws-lambda-youtube-dl
 
-Download YouTube (and a [few other sites](https://ytdl-org.github.io/youtube-dl/index.html)) videos to S3 using Lambda.
+Download YouTube (and a [few other sites](https://ytdl-org.github.io/youtube-dl/supportedsites.html)) videos to S3 using Lambda powered by [youtube-dl](https://ytdl-org.github.io/youtube-dl/index.html).
 
 ## Deploy and Test
 
