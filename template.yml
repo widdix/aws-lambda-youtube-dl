@@ -1,0 +1,27 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: 'aws-lambda-youtube-dl'
+Resources:
+  Bucket:
+    Type: 'AWS::S3::Bucket'
+  Function:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      FunctionName: !Ref 'AWS::StackName'
+      Handler: 'index.handler'
+      Runtime: 'nodejs8.10'
+      CodeUri: '.'
+      MemorySize: 3008
+      Timeout: 900
+      Policies:
+      - S3CrudPolicy:
+          BucketName: !Ref Bucket
+      Environment:
+        Variables:
+          BUCKET_NAME: !Ref Bucket
+Outputs:
+  BucketName:
+    Value: !Ref Bucket
+  FunctionName:
+    Value: !Ref Function
